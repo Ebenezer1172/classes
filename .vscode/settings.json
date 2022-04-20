@@ -1,0 +1,5 @@
+{
+    "dart.flutterAdbConnectOnChromeOs": false,
+    "debug.allowBreakpointsEverywhere": false,
+    "audioCues.onDebugBreak": "off"
+}
