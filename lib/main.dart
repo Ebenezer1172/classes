@@ -62,19 +62,33 @@ final  TextEditingController _fulllegalname = TextEditingController();
     return Scaffold(
       backgroundColor: (Colors.grey[300]),
       
-      // appBar: AppBar(
-      //   title: const Text('create your account'),
-      // ),
+      appBar: AppBar(
+        title: const Text('create your account'),
+      ),
       resizeToAvoidBottomInset: false,
-//       drawer: Drawer(
-//         child: ListView(
-//           children: [
-//             ElevatedButton(
-//                 child: const Text('Home'),
-//                 onPressed: () =>
-//                  Navigator.pushNamed
-//                  (context, '/home')),],),
-// ),
+      drawer: Drawer(
+        child: Row(
+          children:[ 
+            ListView(
+          children: [
+            ElevatedButton(
+                child: const Text('Home'),
+                onPressed: () =>
+                 Navigator.pushNamed
+                 (context, '/home')
+                 ),
+                 ElevatedButton(
+                   onPressed: ()
+                   {Navigator.pushNamed
+                   (context, '/settings');},
+                    child: const Text('Settings')
+                     ),
+                   ElevatedButton(onPressed: (){Navigator.pushNamed(context,'/profile');}, child: const Text('Profile'))
+                 ],
+                 )
+                 ],
+                 ),
+),
       body:
        SafeArea(
          child: SingleChildScrollView(
