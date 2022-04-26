@@ -4,6 +4,7 @@
 import 'package:classes/home.dart';
 import 'package:classes/profile.dart';
 import 'package:classes/settings.dart';
+import 'package:country_picker/country_picker.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +18,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
+      supportedLocales: const [
+        Locale('en'),
+        Locale('el'),
+        Locale.fromSubtags(languageCode: 'zh',scriptCode: 'Hans'),
+        Locale.fromSubtags(languageCode: 'zh',scriptCode: 'Hant'),
+      ],
+      localizationsDelegates: const [
+        CountryLocalizations.delegate,
+        
+        ],
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -147,10 +157,13 @@ final  TextEditingController _fulllegalname = TextEditingController();
                     ],
                   ),
                  const SizedBox(height: 24,),
-                        const Text("Phone Number",style: TextStyle(color:Colors.black38)),
+                        const Text("Phone Number",),
                         const SizedBox(height: 8),
                         const Padding(padding: EdgeInsets.only(right: 0)),
                         TextField(
+                          
+                          //  {print('Select country: ${country.displayName}');
+                          //  },),
                           controller: _phonenumber,
                           decoration: InputDecoration(
                             enabled: true,
@@ -195,6 +208,7 @@ Row(mainAxisAlignment:MainAxisAlignment.end,
       backgroundColor: Colors.black87, 
       onPressed: (){}),
   ],),
+ 
 
                 const SizedBox(height: 8),              
                 const SizedBox(height: 72,width: 317,
@@ -216,6 +230,8 @@ document''',
                         onPressed: () {
                           secondScreen();
                         }),
+
+                        
                   ),
                 ),
                       const SizedBox(height: 38,),
