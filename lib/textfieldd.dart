@@ -31,7 +31,7 @@ final Color textColor;
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(vertical: paddingvertical,horizontal: paddinghorizontal),
         alignLabelWithHint: align,
-        labelText: labelText,hintText: hintText,border: OutlineInputBorder(borderRadius: BorderRadius.circular(borderRadius)))
+        labelText: labelText ,hintText: hintText,border: OutlineInputBorder(borderRadius: BorderRadius.circular(borderRadius)))
       
     );
   }
