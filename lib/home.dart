@@ -20,11 +20,18 @@ final  TextEditingController _user = TextEditingController();
   
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(color: Colors.redAccent,
+    return Scaffold(backgroundColor: Colors.amberAccent,
+
+
+      body: Container(
+       decoration: BoxDecoration(
+         color:const Color.fromARGB(0, 0, 0, 0) ,
+          borderRadius: BorderRadius.circular(10)),
+       margin: const EdgeInsets.symmetric(
+         horizontal: 16,vertical: 32),
       child: Center(
+
           child: 
-          
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
      

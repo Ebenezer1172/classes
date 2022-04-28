@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController _password = TextEditingController();
   String? myName;
   String myname = "create your account";
+  int ninjaLevel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +73,12 @@ class _MyHomePageState extends State<MyHomePage> {
       resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.message),
-        onPressed: () {},
+        onPressed: () {
+          // print(ninjaLevel);
+          setState(() {
+            ninjaLevel += 1;
+          });
+        },
       ),
       drawer: Drawer(
         child: ListView(
@@ -196,11 +202,9 @@ class _MyHomePageState extends State<MyHomePage> {
               Text('''I confirm the information provided 
               correct as they appear on my legal
 document'''),
-              // Scaffold(
-              //   floatingActionButton: (
-              //     widget
-              //   ),
-              // )
+
+
+              
               ElevatedButton(
                   child: Text('$myName create your account'),
                   onPressed: () {
@@ -220,11 +224,12 @@ document'''),
 
     setState(() {
       myName = username;
+     
     });
   }
 }
 
-void floatingActionButton(FloatingActionButton floatingActionButton) {}
+// void floatingActionButton(FloatingActionButton floatingActionButton) {}
 
 // Scaffold(
 //   body: Center(child: Container (

@@ -2,7 +2,7 @@ import 'package:classes/constant.dart';
 import 'package:flutter/material.dart';
 
 
-class Profile extends StatefulWidget {
+     class Profile extends StatefulWidget {
   const Profile({ Key? key }) : super(key: key);
 
   @override
@@ -24,7 +24,21 @@ class _ProfileState extends State<Profile> {
           onPressed: ()=>Navigator.pushNamed(context, '/settings'), ),
           ElevatedButton( child: 
           const Text('Back'),
-          onPressed:()=>Navigator.pop(context, '/profile')),
+          onPressed:()=>Navigator.pop(context, '/profile')
+          ),
+SizedBox(height: 56,width: 1000,
+  child:   ElevatedButton(
+  
+    child:const Text('Go to log in page'),
+  
+    onPressed: (){
+  
+    Navigator.pushNamed(context, '/loginpage');
+  
+  },
+  
+    ),
+),
           
           
       ],

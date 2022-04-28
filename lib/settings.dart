@@ -12,11 +12,13 @@ class _SettingdState extends State<Settingd> {
   @override
   Widget build(BuildContext context) {
     var start = MainAxisAlignment.start;
+    CrossAxisAlignment.start;
     return Container(color: Colors.yellowAccent,
     child:Row(
       mainAxisAlignment: start,
-    
+
       children: [
+
         ElevatedButton(child:
         const Icon(Icons.arrow_back),
         // const Text('back'),
