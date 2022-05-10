@@ -1,10 +1,8 @@
 
-
-
 import 'package:classes/home.dart';
 import 'package:classes/loginpage.dart';
 import 'package:classes/profile.dart';
-import 'package:classes/settings.dart';
+import 'package:classes/homep.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -62,8 +60,10 @@ final  TextEditingController _fulllegalname = TextEditingController();
   String? myName;
   String myname = "create your account";
   int ninjaLevel = 0;
-  bool value =false;
+  bool value = false;
 final _formKey =GlobalKey<FormState>();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -160,10 +160,10 @@ final _formKey =GlobalKey<FormState>();
                                  contentPadding: const EdgeInsets.only(left: 8,right: 0),
                              ),
                              validator: (value){
-                                 if (value== null ){
-                               return null;
+                                 if (value.toString().isEmpty) {
+                              return  'mumu input something';  
                                  }
-                                 return  'mumu input something';
+                                return null;
                                },
                              ),
                                 
@@ -190,10 +190,10 @@ final _formKey =GlobalKey<FormState>();
                                  
                                ),
                                  validator: (value){
-                                 if (value== null ){
+                                 if (value.toString().isEmpty)  {
                                  return 'mumu input something';
                                  }
-                                 return  'mumu input something';
+                                 return null;
                                  },
                                  ),
                                  
@@ -238,13 +238,13 @@ final _formKey =GlobalKey<FormState>();
                                  
                                  validator: (value){
                                  
-                                 if (value == null ){
+                                 if (value.toString().isEmpty) {
                                  
                                return 'dont be silly,type something';
                                  
                                  }
                                  
-                                 return 'dont be silly,type something';
+                                 return null;
                                  
                                  },
                                  
@@ -271,10 +271,10 @@ final _formKey =GlobalKey<FormState>();
                                  
                                ),
                                  validator: (value){
-                               if(value==null){
-                                 return 'your head is not correct';
+                               if(value.toString().isEmpty){
+                                 return 'Your head is not correct';
                                }
-                               return 'your head is not correct';
+                               return null;
                                  },
                                  ),
                                  
@@ -297,11 +297,11 @@ final _formKey =GlobalKey<FormState>();
                     contentPadding: const EdgeInsets.only(left: 8,right: 0),
                                  
                                ),
-                                 validator:(value){
-                               if (value==null){
+                                 validator:  (value)  {
+                               if (value.toString().isEmpty) {
                                  return 'dumb MF fill the form';
                                }
-                               return ' dumb MF fill the form';
+                               return null;
                                  }
                                  ),
                                  Row(mainAxisAlignment:MainAxisAlignment.end,
@@ -320,11 +320,13 @@ final _formKey =GlobalKey<FormState>();
                                ],),
                                  SizedBox(height: 56,width: 1000,
                                child:   ElevatedButton(onPressed: (() {
+                                 Navigator.pushNamed(context, '/loginpage');
                                
                                 if (_formKey.currentState! .validate()) {
                                
                    ScaffoldMessenger.of(context).showSnackBar(
                      const SnackBar(content: Text('processing Data'),));
+                     
                                
                                 }
                                
@@ -333,6 +335,7 @@ final _formKey =GlobalKey<FormState>();
                                ), child: const Text('create account')
                                
                                ),
+                               
                                  ),    
                                  
                                 
@@ -342,14 +345,18 @@ final _formKey =GlobalKey<FormState>();
                                  child: ListTile(
                     leading:
                      Checkbox(
-                       value: false,
-                     onChanged:(value){                   
-                        }),
-                                 
-                                 
-                   title: const Text('''I confirm the information provided 
-                                 correct as they appear on my legal
-                                 document''',style: TextStyle(
+                       value: value,
+                     onChanged:(value){  
+                       setState(() {
+                          this.value = value!;  
+                       });                                     
+                        }
+                        ),             
+                   title: const Text('''I confirm the information 
+                   provided 
+        correct as they appear on my legal
+document''',
+                                 style: TextStyle(
                                fontWeight: FontWeight.w300
                                ),
                                  ),           
@@ -370,7 +377,8 @@ final _formKey =GlobalKey<FormState>();
                         style: TextStyle(fontSize: 16 ),),
                         
                         onPressed: () {
-                          secondScreen();
+                          // secondScreen();
+                          Navigator.pushNamed(context, '/loginpage');
                         })
                         
                                  

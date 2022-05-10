@@ -17,7 +17,7 @@ class _LogInPageState extends State<LogInPage> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Log-in'),
-        actions: [IconButton( icon:const Icon(Icons.abc),onPressed: (){}, )],
+        actions: [IconButton( icon:const Icon(Icons.camera),onPressed: (){}, )],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -48,7 +48,14 @@ class _LogInPageState extends State<LogInPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     children: [
-                      const Text('Username'),
+                      Padding(
+                        padding: const EdgeInsets.all(0),
+                        child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            Text('Username'),
+                          ],
+                        ),
+                      ),
                       const SizedBox(
                         height: 8,
                       ),
@@ -71,7 +78,11 @@ class _LogInPageState extends State<LogInPage> {
                       const SizedBox(
                         height: 28,
                       ),
-                      const Text('Password'),
+                      Row(mainAxisAlignment: MainAxisAlignment.start,
+                        children: const [
+                          Text('Password'),
+                        ],
+                      ),
                       const SizedBox(
                         height: 8,
                       ),
@@ -86,10 +97,10 @@ class _LogInPageState extends State<LogInPage> {
                               const EdgeInsets.only(left: 8, right: 0),
                         ),
                         validator: (value) {
-                          if (value == null) {
-                            return null;
+                          if (value.toString().isEmpty) {
+                            return  'mumu input something';
                           }
-                          return 'mumu input something';
+                          return null;
                         },
                       ),
                       const SizedBox(
@@ -106,7 +117,9 @@ class _LogInPageState extends State<LogInPage> {
                       width: 700,
                       child: ElevatedButton(
                         child: const Text('Log in'),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/settings');
+                        },
                       ),
                     ),
                   ),
